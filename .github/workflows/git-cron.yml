@@ -22,7 +22,7 @@ jobs:
         run:  touch new-script-${{ github_sha }}.txt
       - name: Run another script
         run: |
-           echo "GitHub Short Commit Hash hash: ${github_sha_short}" >> new-script-${{ github_sha }}.txt
+           echo "GitHub Short Commit Hash hash: ${github_sha_short}" >> new-script-"${github_sha_short}".txt
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: Automated Change
