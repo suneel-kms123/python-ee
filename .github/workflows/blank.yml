@@ -31,9 +31,9 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-      
-      - run: echo "$(date +'%Y-%m-%dT%H:%M:%S')" > ./file-${{ github.event.repository.updated_at}}.txt
 
+      - run: git checkout -b branch_${{ github.event.repository.updated_at}}
+      - run: echo "$(date +'%Y-%m-%dT%H:%M:%S')" > ./file-${{ github.event.repository.updated_at}}.txt
                   
       - name: Git Auto Commit
         uses: stefanzweifel/git-auto-commit-action@v5.1.0
