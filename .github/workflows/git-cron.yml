@@ -1,0 +1,31 @@
+# This is a basic workflow that is manually triggered
+
+name: Manual workflow
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+
+jobs:
+  # This workflow contains a single job called "cron"
+  cron:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+ 
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: echo Hello, world!
+      - name: Check out the repository to the runner
+        uses: actions/checkout@v4  
+      - name: create a script
+        run:  touch new-script-${{ github_sha }}.txt
+      - name: Run another script
+        run: |
+           echo "GitHub Short Commit Hash hash: ${github_sha_short}" >> new-script-${{ github_sha }}.txt
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Automated Change
+          branch: feature-123
+          commit_options: '--no-verify --signoff'
+          
