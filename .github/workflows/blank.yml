@@ -32,12 +32,10 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
 
-      - run: git checkout -b branch_${{ github.event.name}}
       - run: echo "$(date +'%Y-%m-%dT%H:%M:%S')" > ./file-${{ github.event.name}}.txt
                   
       - name: Git Auto Commit
         uses: stefanzweifel/git-auto-commit-action@v5.1.0
         with:
           commit_message: "auto commit from github actions"
-          branch: branch_${{ github.event.repository.name}}
           repository: .
