@@ -6,7 +6,7 @@ jobs:
   run_ping:
     defaults:
       run:
-        working-directory: ./ansible/inventory
+        working-directory: ansible/inventory
       
     runs-on: ubuntu-latest
     name: ping
