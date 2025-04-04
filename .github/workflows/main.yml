@@ -1,8 +1,13 @@
 name: ansible-workflow
 on: [pull_request]
-run-name: ansible
+run-name: ansible 
+  
 jobs:
   run_ping:
+    defaults:
+      run:
+        working-directory: ./ansible/inventory
+      
     runs-on: ubuntu-latest
     name: ping
     steps:
