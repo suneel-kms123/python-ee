@@ -4,11 +4,10 @@ run-name: ansible
   
 jobs:
   run_ping:
-    defaults:
-      run:
-        working-directory: ../ansible/inventory
-      
     runs-on: ubuntu-latest
-    name: ping
     steps:
-      - run: ansible -i hosts all -m ping
+      - name: Check out the repository on the runner
+        uses: actions/checkout@v4 
+      - name: ping
+        working-directory: ansible/inventory
+        run: ansible -i hosts all -m ping
