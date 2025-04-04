@@ -7,7 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repository on the runner
-        uses: actions/checkout@v4 
+        uses: actions/checkout@v4
+      - run: pwd
       - name: ping
         working-directory: ${{ github.workspace }}/ansible/inventory
         run: ansible -i hosts all -m ping
