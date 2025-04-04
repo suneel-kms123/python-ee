@@ -1,0 +1,9 @@
+name: ansible-workflow
+on: [pull_request]
+run-name: ansible
+jobs:
+  run_ping:
+    runs-on: ubuntu-latest
+    name: ping
+    steps:
+      - run: ansible -i hosts all -m ping
