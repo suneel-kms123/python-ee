@@ -13,4 +13,4 @@ jobs:
         working-directory: ${{ github.workspace }}/ansible/inventory
         run: |- 
           pwd
-          ansible -i hosts all -m ping
+          ansible -i server all -m ping
