@@ -1,0 +1,16 @@
+name: ansible-workflow
+on: [pull_request]
+run-name: ansible 
+  
+jobs:
+  run_ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository on the runner
+        uses: actions/checkout@v4
+      - run: pwd
+      - name: ping
+        working-directory: ${{ github.workspace }}/ansible/inventory
+        run: |- 
+          pwd
+          ansible -i server all -m ping
